@@ -57,33 +57,3 @@ def learning_model(dataset):
     print(f"Коэффициент детерминации (R^2): {r2}")
 
 
-weights=[0.84665087,0.67125038,0.92194114,0.71525979]
-
-def main():
-    weights=[0.84665087,0.67125038,0.92194114,0.71525979]
-
-if __name__ == '__main__':  
-    main()
-'''
-np.random.seed(42)
-
-# Генерация данных
-data = {
-    "I": np.random.randint(0, 6, 2000)*2,  # Количество совпадающих категорий (0-5)
-    "R": np.round(np.random.uniform(0,1,2000),2)+ np.clip(np.random.normal(3.8, 0.6, 2000),1, 4),  # Средний рейтинг места (1.00-5.00)
-    "F": np.random.choice([0, 10], 2000, p=[0.9, 0.1]),  # Наличие в избранном (0 или 10)
-    "P": np.random.choice([0, -10], 2000, p=[0.8, 0.2]),  # Наличие в других маршрутах (0 или -10)
-}
-
-# Рассчитываем итоговый рейтинг R с хорошей корреляцией с I, F, P
-data["Score"] = np.clip(
-    data["I"] + data["R"] + data["F"] + data["P"] + np.random.normal(0, 3, 2000),
-    1, 25  # Ограничиваем диапазон от 1 до 25
-).astype(int)
-
-# Создаем DataFrame
-df = pd.DataFrame(data)
-
-df.to_csv('algdata.csv', index=False)
-'''
-
