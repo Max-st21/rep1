@@ -107,6 +107,5 @@ def delete_routeplaces(cur,conn,route_id,route:Route_place):
 
     return route
 
-conn = psycopg2.connect(dbname='db', user='postgres', password='3689127f', host='localhost', )
-cur = conn.cursor()
+
 
