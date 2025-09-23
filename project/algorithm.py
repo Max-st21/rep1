@@ -79,27 +79,3 @@ def generate_route(ranked_places,route_param):
             route_places.append([route_param['user_id'].iloc[0],place['place_id']])
 
     return route_places
-
-
-def main(): 
-    try:
-        conn = psycopg2.connect(dbname='db', user='postgres', password='3689127f', host='localhost', )
-        cur = conn.cursor()
-    except Exception as e:
-        print(f"Ошибка подключения к базе данных: {e}")
-
-    cur.execute("INSERT INTO favourite_categories (user_id,category_id) VALUES (%s, %s);", (1,62))
-    conn.commit()
-    '''
-    favs=[1,2,7,11,62,64]
-    print('Список интересов пользователя:\n')
-    for i in range (0,len(favs)):
-        pl=cur.execute("SELECT category_name FROM categories WHERE category_id=%s;",(favs[i],))
-        pl=cur.fetchall()
-        print(pl)
-    
-    print(create_route(conn,cur))
-    '''
-
-if __name__ == '__main__':  
-    main()
